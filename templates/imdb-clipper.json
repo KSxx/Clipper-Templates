@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "IMDb – KSxx",
 	"behavior": "create",
-	"noteNameFormat": "{{schema:name}} ({{schema:datePublished|split:\"-\"|slice:0,1}})",
+	"noteNameFormat": "{{schema:name}} ({% if schema:@TVSeries:name %}{{title|replace:\"/^.*?([0-9]{4}).*$/\":\"$1\"}}{% else %}{{schema:datePublished|split:\"-\"|slice:0,1}}{% endif %})",
 	"path": "Clippings",
 	"noteContentFormat": "![{{schema:name}}]({{schema:image}})\n\n## Handlung\n\n{{selector:[data-testid=\"plot-xl\"]|first}}\n\n## Verfügbarkeit\n\n[Bei WerStreamt.es prüfen](https://www.werstreamt.es/filme-serien/?q={{schema:name|replace:\" \":\"%20\"}}&action_results=suchen)",
 	"properties": [
@@ -18,7 +18,7 @@
 		},
 		{
 			"name": "year",
-			"value": "{{schema:datePublished|split:\"-\"|slice:0,1}}",
+			"value": "{% if schema:@TVSeries:name %}{{title|replace:\"/^.*?([0-9]{4}).*$/\":\"$1\"}}{% else %}{{schema:datePublished|split:\"-\"|slice:0,1}}{% endif %}",
 			"type": "number"
 		},
 		{
@@ -28,12 +28,17 @@
 		},
 		{
 			"name": "directors",
-			"value": "{{selector:[data-testid=\"title-pc-principal-credit\"]:first-child a|unique|join}}",
+			"value": "{% if schema:@TVSeries:name %}{% else %}{{schema:director[*].name|join}}{% endif %}",
+			"type": "multitext"
+		},
+		{
+			"name": "creators",
+			"value": "{% if schema:@TVSeries:name %}{{selector:[data-testid=\"title-pc-principal-credit\"]:first-child a|unique|join}}{% endif %}",
 			"type": "multitext"
 		},
 		{
 			"name": "cast",
-			"value": "{{selector:[data-testid=\"title-pc-principal-credit\"]:nth-child(3) div a|unique|join}}",
+			"value": "{{schema:actor[*].name|slice:0,3|join}}",
 			"type": "multitext"
 		},
 		{
