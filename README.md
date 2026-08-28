@@ -6,7 +6,7 @@ The templates are based on [kepano/clipper-templates](https://github.com/kepano/
 
 ## Templates
 
-- `youtube-clipper.json` — stores the full upload date in `published-date` so it does not conflict with the numeric `published` year used by book notes.
+- `youtube-clipper.json` — stores the full upload date in `published-date` so it does not conflict with the numeric `published` year used by book notes. The creator is stored as plain text instead of an automatic wiki link, so only intentionally created relationships become links in the vault.
 
 ## Installation
 
