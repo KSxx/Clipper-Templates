@@ -4,7 +4,7 @@
 	"behavior": "create",
 	"noteNameFormat": "{{title}}",
 	"path": "Clippings",
-	"noteContentFormat": "{% if selection %}\n{{selectionHtml|remove_html:(\"sup,img,.mw-editsection\")|markdown}}\n{% else %}\n{{contentHtml|remove_html:(\"img,sup,.mw-editsection,#Einzelnachweise,.mw-references-wrap,.reflist,ol.references\")|markdown}}\n{% endif %}",
+	"noteContentFormat": "{% if selection %}\n{{selectionHtml|remove_html:(\"sup,img,.mw-editsection\")|markdown}}\n{% else %}\n{{contentHtml|remove_html:(\"img,sup,.mw-editsection,section:has(ol.references),.mw-heading:has(~ ol.references),.mw-references-wrap,.reflist,ol.references\")|markdown}}\n{% endif %}",
 	"properties": [
 		{
 			"name": "title",
