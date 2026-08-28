@@ -1,10 +1,10 @@
 {
 	"schemaVersion": "0.1.0",
-	"name": "IMDb",
+	"name": "IMDb – KSxx",
 	"behavior": "create",
 	"noteNameFormat": "{{schema:name}}",
 	"path": "Clippings",
-	"noteContentFormat": "![{{schema:name}}]({{schema:image}})\n\n## Handlung\n\n{{schema:description}}",
+	"noteContentFormat": "![{{schema:name}}]({{schema:image}})\n\n## Handlung\n\n{{selector:[data-testid=\"plot-xl\"]|first}}",
 	"properties": [
 		{
 			"name": "type",
@@ -78,6 +78,6 @@
 		}
 	],
 	"triggers": [
-		"/^https:\\/\\/www\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/"
+		"/^https:\\/\\/www\\.imdb\\.com\\/(?:[a-z]{2}\\/)?title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/"
 	]
 }
