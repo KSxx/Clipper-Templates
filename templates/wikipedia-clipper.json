@@ -4,7 +4,7 @@
 	"behavior": "create",
 	"noteNameFormat": "{{title}}",
 	"path": "Clippings",
-	"noteContentFormat": "{% if selection %}\n{{selection|replace:\"/<sup\\b[^>]*>[\\s\\S]*?<\\/sup>/gi\":\"\"}}\n{% else %}\n{{content|replace:\"/!\\[[^\\]]*\\]\\(https?\\:\\/\\/[^)]*wikipedia\\.org\\/wiki\\/Datei\\:[^)]+\\)\\n?/gi\":\"\"}}\n{% endif %}",
+	"noteContentFormat": "{% if selection %}\n{{selectionHtml|remove_html:(\"sup,img\")|markdown}}\n{% else %}\n{{contentHtml|remove_html:\"img\"|markdown}}\n{% endif %}",
 	"properties": [
 		{
 			"name": "title",
