@@ -4,7 +4,7 @@
 	"behavior": "create",
 	"noteNameFormat": "{{schema:name}}",
 	"path": "Clippings",
-	"noteContentFormat": "![{{schema:name}}]({{schema:image}})\n\n## Handlung\n\n{{selector:[data-testid=\"plot-xl\"]|first}}",
+	"noteContentFormat": "![{{schema:name}}]({{schema:image}})\n\n## Handlung\n\n{{selector:[data-testid=\"plot-xl\"]|first}}\n\n## Verfügbarkeit\n\n[Bei WerStreamt.es prüfen](https://www.werstreamt.es/filme-serien/?q={{schema:name|replace:\" \":\"%20\"}}&action_results=suchen)",
 	"properties": [
 		{
 			"name": "type",
