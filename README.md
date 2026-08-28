@@ -7,7 +7,7 @@ The templates are based on [kepano/clipper-templates](https://github.com/kepano/
 ## Templates
 
 - `youtube-clipper.json` — stores the full upload date in `published-date` so it does not conflict with the numeric `published` year used by book notes. The creator is stored as plain text instead of an automatic wiki link, so only intentionally created relationships become links in the vault.
-- `wikipedia-clipper.json` — clips the current selection when text is selected and otherwise captures the detected article content. It strips images, citation markers, edit controls, and the full reference section before converting Wikipedia HTML to Markdown. Reference sections are detected by Wikipedia's language-independent HTML structure instead of translated heading names. Wikipedia is stored as plain-text author, and organizational values are normal tags rather than wiki links.
+- `wikipedia-clipper.json` — clips the current selection when text is selected and otherwise captures the detected article content. It strips images and citation HTML before Markdown conversion, then removes edit controls by their technical Wikipedia URLs. Full-article clips additionally discard footnote markers and the trailing reference block based on Markdown structure, independent of translated section names. Wikipedia is stored as plain-text author, and organizational values are normal tags rather than wiki links.
 
 ## Installation
 
