@@ -1,0 +1,83 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "IMDb",
+	"behavior": "create",
+	"noteNameFormat": "{{schema:name}}",
+	"path": "Clippings",
+	"noteContentFormat": "![{{schema:name}}]({{schema:image}})\n\n## Handlung\n\n{{schema:description}}",
+	"properties": [
+		{
+			"name": "type",
+			"value": "movie",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{schema:name}}",
+			"type": "text"
+		},
+		{
+			"name": "year",
+			"value": "{{schema:datePublished|split:\"-\"|slice:0,1}}",
+			"type": "number"
+		},
+		{
+			"name": "genres",
+			"value": "{{schema:genre|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "directors",
+			"value": "{{selector:[data-testid=\"title-pc-principal-credit\"]:first-child a|unique|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "cast",
+			"value": "{{selector:[data-testid=\"title-pc-principal-credit\"]:nth-child(3) div a|unique|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "imdb-rating",
+			"value": "{{schema:aggregateRating.ratingValue}}",
+			"type": "number"
+		},
+		{
+			"name": "rating",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "cover",
+			"value": "{{schema:image}}",
+			"type": "text"
+		},
+		{
+			"name": "source-url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tags",
+			"value": "film",
+			"type": "multitext"
+		},
+		{
+			"name": "aliases",
+			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "related",
+			"value": "",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/www\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/"
+	]
+}
