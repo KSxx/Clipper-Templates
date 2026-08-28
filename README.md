@@ -1,0 +1,13 @@
+# Clipper Templates
+
+Personalized templates for [Obsidian Web Clipper](https://obsidian.md/clipper), adapted to the property conventions used in the KSxx Obsidian vault.
+
+The templates are based on [kepano/clipper-templates](https://github.com/kepano/clipper-templates) and are adjusted incrementally after testing on iPhone and in Obsidian.
+
+## Templates
+
+- `youtube-clipper.json` — stores the full upload date in `published-date` so it does not conflict with the numeric `published` year used by book notes.
+
+## Installation
+
+Download the desired JSON file and import it in **Web Clipper Settings → Templates → Import**.
