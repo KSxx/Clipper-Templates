@@ -2,13 +2,13 @@
 	"schemaVersion": "0.1.0",
 	"name": "IMDb – KSxx",
 	"behavior": "create",
-	"noteNameFormat": "{{schema:name}}",
+	"noteNameFormat": "{{schema:name}} ({{schema:datePublished|split:\"-\"|slice:0,1}})",
 	"path": "Clippings",
 	"noteContentFormat": "![{{schema:name}}]({{schema:image}})\n\n## Handlung\n\n{{selector:[data-testid=\"plot-xl\"]|first}}\n\n## Verfügbarkeit\n\n[Bei WerStreamt.es prüfen](https://www.werstreamt.es/filme-serien/?q={{schema:name|replace:\" \":\"%20\"}}&action_results=suchen)",
 	"properties": [
 		{
 			"name": "type",
-			"value": "movie",
+			"value": "{% if schema:@TVSeries:name %}series{% else %}movie{% endif %}",
 			"type": "text"
 		},
 		{
@@ -53,7 +53,7 @@
 		},
 		{
 			"name": "source-url",
-			"value": "{{url}}",
+			"value": "{{url|split:\"?\"|first}}",
 			"type": "text"
 		},
 		{
@@ -63,7 +63,7 @@
 		},
 		{
 			"name": "tags",
-			"value": "film",
+			"value": "{% if schema:@TVSeries:name %}serie{% else %}film{% endif %}",
 			"type": "multitext"
 		},
 		{
