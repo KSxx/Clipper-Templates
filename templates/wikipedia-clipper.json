@@ -4,7 +4,7 @@
 	"behavior": "create",
 	"noteNameFormat": "{{title}}",
 	"path": "Clippings",
-	"noteContentFormat": "{% if selection %}\n{{selectionHtml|remove_html:(\"sup,img\")|markdown|replace:\"/^.*\\/w\\/index\\.php\\?[^\\n]*(veaction|action)=edit[^\\n]*\\n?/gm\":\"\"}}\n{% else %}\n{{contentHtml|remove_html:(\"img,sup\")|markdown|replace:\"/^.*\\/w\\/index\\.php\\?[^\\n]*(veaction|action)=edit[^\\n]*\\n?/gm\":\"\"|replace:\"/\\n## [^\\n]+\\n+(?=\\[\\^[^\\]]+\\]\\:)[\\s\\S]*$/\":\"\"|replace:\"/\\[\\^[^\\]]+\\]/g\":\"\"}}\n{% endif %}",
+	"noteContentFormat": "{% if selection %}\n{{selectionHtml|remove_html:(\"sup,img\")|markdown|replace:\"/^.*action=edit.*\\n?/gm\":\"\"}}\n{% else %}\n{{contentHtml|remove_html:(\"img,sup\")|markdown|replace:\"/^.*action=edit.*\\n?/gm\":\"\"|replace:\"/\\n## [^\\n]+\\n+\\[\\^1\\]\\:[\\s\\S]*$/\":\"\"|replace:\"/\\[\\^[0-9]+\\]/g\":\"\"}}\n{% endif %}",
 	"properties": [
 		{
 			"name": "title",
