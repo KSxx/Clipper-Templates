@@ -4,7 +4,7 @@
 	"behavior": "create",
 	"noteNameFormat": "{{title}}",
 	"path": "Clippings",
-	"noteContentFormat": "{% if selection %}\n{{selection|replace:\"/^.*action=edit.*\\\\n?/gm\":\"\"}}\n{% else %}\n{{content|replace:\"/\\\\n## [^\\\\n]+\\\\n+\\\\[\\\\^1\\\\]:[\\\\s\\\\S]*$/\":\"\"}}\n{% endif %}",
+	"noteContentFormat": "{% if selection %}\n{{selection|replace:\"/^.*action=edit.*\\\\n?/gm\":\"\"|replace:\"/\\\\[\\\\^[0-9]+\\\\]/g\":\"\"}}\n{% else %}\n{{content|replace:\"/\\\\n## [^\\\\n]+\\\\n+\\\\[\\\\^1\\\\]:[\\\\s\\\\S]*$/\":\"\"|replace:\"/\\\\[\\\\^[0-9]+\\\\]/g\":\"\"}}\n{% endif %}",
 	"properties": [
 		{
 			"name": "title",
