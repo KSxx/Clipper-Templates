@@ -3,7 +3,7 @@
 	"name": "IMDb – KSxx",
 	"behavior": "create",
 	"noteNameFormat": "{{schema:name}} ({% if schema:@TVSeries:name %}{{title|replace:\"/^.*?([0-9]{4}).*$/\":\"$1\"}}{% else %}{{schema:datePublished|split:\"-\"|slice:0,1}}{% endif %})",
-	"path": "Clippings",
+	"path": "60 Sammlungen/Filme",
 	"noteContentFormat": "![{{schema:name}}]({{schema:image}})\n\n## Handlung\n\n{{selector:[data-testid=\"plot-xl\"]|first}}\n\n## Verfügbarkeit\n\n[Bei WerStreamt.es prüfen](https://www.werstreamt.es/filme-serien/?q={{schema:name|replace:\" \":\"%20\"}}&action_results=suchen)",
 	"properties": [
 		{
@@ -52,6 +52,11 @@
 			"type": "number"
 		},
 		{
+			"name": "status",
+			"value": "",
+			"type": "text"
+		},
+		{
 			"name": "cover",
 			"value": "{{schema:image}}",
 			"type": "text"
@@ -79,6 +84,11 @@
 		{
 			"name": "related",
 			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "cssclasses",
+			"value": "note-template, media-note",
 			"type": "multitext"
 		}
 	],
